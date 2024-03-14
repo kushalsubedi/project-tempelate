@@ -93,7 +93,7 @@
 
 \begin{document}
 
-\subfile{titlepage}
+\subfile{front/titlepage}
 \noindent
 \setcounter{page}{2}
 
@@ -101,7 +101,7 @@
 % certificates, acknowledgements, ...\tableofcontents
 \clearpage
 \addcontentsline{toc}{chapter}{\protect\normalsize ABSTRACT} 
-\subfile{Abstract}
+\subfile{front/Abstract}
 \clearpage
 \tableofcontents
 \clearpage
@@ -111,23 +111,23 @@
 \addcontentsline{toc}{chapter}{\protect\normalsize LIST OF TABLES}
 \listoftables
 \clearpage
-\subfile{Abbreviation}
+\subfile{front/Abbreviation}
 \addcontentsline{toc}{chapter}{ABBREVIATIONS}
 
 \clearpage
 \setcounter{page}{1}\pagenumbering{arabic}
-\subfile{01-introduction}
-\subfile{02-Literature-review}
-\subfile{03-Methodology}
+\subfile{chapters/01-introduction}
+\subfile{chapters/02-Literature-review}
+\subfile{chapters/03-Methodology}
 
-\subfile{04.System-Archi}
-\subfile{05-Implementation}
-\subfile{Conclusion}
+\subfile{chapters/04.System-Archi}
+\subfile{chapters/05-Implementation}
+\subfile{chapters/Conclusion}
 
 %set page number for Appendix 27 onwards in Table of Contents
 
 \printbibliography [heading = bibintoc, title = {REFERENCES}]
 
 \addcontentsline{toc}{chapter}{APPENDIX}
-\subfile{Appendix}
+\subfile{back/Appendix}
 \end{document}
