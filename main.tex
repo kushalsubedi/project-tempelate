@@ -1,0 +1,133 @@
+\documentclass[12pt]{report}
+\usepackage{graphicx}
+\graphicspath{{./images}}
+
+\usepackage[left=1.25in, top=1in, right=1in, bottom=1in]{geometry}
+\usepackage{fontspec}
+%\setmainfont{Times_New_Roman}
+\setmainfont{Times New Roman}
+% \usepackage[base]{babel}
+\usepackage{lipsum}
+\usepackage{tabularx}
+\usepackage{tikz}
+ \usetikzlibrary{positioning, arrows.meta, shapes.multipart}
+
+\usepackage{pgfgantt}
+\usepackage{float}
+ % \usepackage{pgfgantt}
+ \usepackage{xcolor}
+ \usepackage{array}
+ \usepackage{multirow}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Define code listing style
+\lstdefinestyle{mystyle}{
+    basicstyle=\ttfamily\small,
+    commentstyle=\color{green},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{gray},
+    numbers=left,
+    frame=single,
+    breaklines=true
+}
+% \usepa
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[hidelinks]{hyperref}
+\usepackage[titles]{tocloft}
+\setcounter{tocdepth}{1}
+\setlength{\cftbeforechapskip}{-5pt} % Adjust the value as needed
+\renewcommand{\contentsname}{\MakeUppercase{Table of Contents}}
+\renewcommand{\cfttoctitlefont}{\hfill\Large\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfill\null{}}
+\renewcommand{\listfigurename}{\MakeUppercase{List of Figures}}
+\renewcommand{\cftloftitlefont}{\hfill\Large\bfseries}
+\renewcommand{\cftafterloftitle}{\hfill}
+\renewcommand{\listtablename}{\MakeUppercase{List of Tables}}
+\renewcommand{\cftlottitlefont}{\hfill\Large\bfseries}
+\renewcommand{\cftafterlottitle}{\hfill}
+\usepackage[capitalize, nameinlink]{cleveref}
+\usepackage{siunitx}
+\usepackage{setspace}
+\usepackage{tabularray}
+
+
+\UseTblrLibrary{booktabs}
+
+\usepackage{titlesec}
+
+\titleformat{\chapter}[display]{\bfseries\centering\fontsize{16}{0}\selectfont}{\MakeUppercase\chaptertitlename\ \thechapter}{10pt}{\MakeUppercase}
+\titlespacing{\chapter}{0pt}{0pt}{10pt}
+
+\titleformat{\section}[hang]{\bfseries\fontsize{14}{20}\selectfont}{\thesection}{15pt}{}
+\titlespacing*{\section}{0pt}{0pt}{0pt}
+
+\titleformat{\subsection}[hang]{\bfseries\fontsize{12}{20}\selectfont}{\thesubsection}{15pt}{}
+\titlespacing*{\subsection}{0pt}{0pt}{0pt}
+
+
+
+\usepackage{fancyhdr}
+
+\usepackage{enumitem}
+\usepackage{booktabs, cellspace, hhline}
+\usepackage[style=ieee]{biblatex}
+\addbibresource{lit.bib}
+
+\renewcommand{\baselinestretch}{1.5}
+\setlength{\parindent}{0.5in}
+% \setlength{\parskip}{0pt}
+
+\setcounter{secnumdepth}{3}
+\setlength{\cfttabnumwidth}{6em}
+\renewcommand{\cfttabpresnum}{Table }
+\renewcommand{\cfttabaftersnum}{.}
+\setlength{\cftfignumwidth}{6em}
+\renewcommand{\cftfigpresnum}{Figure }
+\renewcommand{\cftfigaftersnum}{.}
+
+% Ranjan Edit test for compilation timeout
+\usepackage{subfiles}
+
+\begin{document}
+
+\subfile{titlepage}
+\noindent
+\setcounter{page}{2}
+
+\renewcommand{\thepage}{\roman{page}}
+% certificates, acknowledgements, ...\tableofcontents
+\clearpage
+\addcontentsline{toc}{chapter}{\protect\normalsize ABSTRACT} 
+\subfile{Abstract}
+\clearpage
+\tableofcontents
+\clearpage
+\addcontentsline{toc}{chapter}{\protect\normalsize LIST OF FIGURES}
+\listoffigures 
+\clearpage
+\addcontentsline{toc}{chapter}{\protect\normalsize LIST OF TABLES}
+\listoftables
+\clearpage
+\subfile{Abbreviation}
+\addcontentsline{toc}{chapter}{ABBREVIATIONS}
+
+\clearpage
+\setcounter{page}{1}\pagenumbering{arabic}
+\subfile{01-introduction}
+\subfile{02-Literature-review}
+\subfile{03-Methodology}
+
+\subfile{04.System-Archi}
+\subfile{05-Implementation}
+\subfile{Conclusion}
+
+%set page number for Appendix 27 onwards in Table of Contents
+
+\printbibliography [heading = bibintoc, title = {REFERENCES}]
+
+\addcontentsline{toc}{chapter}{APPENDIX}
+\subfile{Appendix}
+\end{document}
